@@ -31,3 +31,9 @@ spring:
         default_batch_fetch_size: 10
     defer-datasource-initialization: true
     open-in-view: true
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: TRACE
+    shop.mtcoding.blog: DEBUG # 모든 로그중에 디버그 이상의 버그를 보겠다 이러면 trace - debug - info - warn - error 이 중에서 디버그 이상만 뜬다. 즉 trace 제외하고 다 뜸.
+
