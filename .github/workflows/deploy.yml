@@ -25,11 +25,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build
 
+      # /home/runner/work/spring-blog-v2-step12/spring-blog-v2-step12/deploy
       - name: deploy packaging
         run: |
           mkdir deploy
           cp build/libs/*.jar deploy/application.jar
-        # 이름을 무조건 application.jar로 설정
           cp Procfile deploy/Procfile
           cp -r .ebextensions deploy/.ebextensions
           cd deploy && zip -r deploy.zip .
