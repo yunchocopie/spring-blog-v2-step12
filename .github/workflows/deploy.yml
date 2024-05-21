@@ -24,3 +24,15 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew clean build
+
+      - name: deploy packaging
+        run: |
+          mkdir deploy
+          cp build/libs/*.jar deploy/application.jar
+        # 이름을 무조건 application.jar로 설정
+          cp Procfile deploy/Procfile
+          cp -r .ebextensions deploy/.ebextensions
+          cd deploy && zip -r deploy.zip .
+
+      - name: list
+        run: ls
